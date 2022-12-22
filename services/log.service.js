@@ -5,7 +5,7 @@ const printError = (error) => {
 	console.log(chalk.bgRed(' ERROR ') + ' ' + error);
 };
 
-const printMessage = (message) => {
+const printSuccess = (message) => {
 	console.log(chalk.bgGreen(' MESSAGE ') + ' ' + message);
 };
 
@@ -19,4 +19,4 @@ const printHelp = () => {
 	`);
 };
 
-export { printError, printMessage, printHelp };
+export { printError, printSuccess, printHelp };
