@@ -6,7 +6,19 @@ const printError = (error) => {
 };
 
 const printSuccess = (message) => {
-	console.log(chalk.bgGreen(' MESSAGE ') + ' ' + message);
+	console.log(chalk.bgGreen(' SUCCESS ') + ' ' + message);
+};
+
+const printWeather = (res, icon) => {
+	console.log(
+		dedent`
+			${chalk.bgMagenta(' WEATHER ')} Погода в городе ${res.name}
+			${icon}  ${res.weather[0].description}
+			Температура ${res.main.temp}°
+			Ощущается как: ${res.main.feels_like}°
+			Ветер ${res.wind.speed} м/c
+		`
+	);
 };
 
 const printHelp = () => {
@@ -14,9 +26,9 @@ const printHelp = () => {
 		${chalk.bgCyan(' HELP ')}
 		Без параметров - вывод погоды
 		-s [CITY] для установки города
-		-h для вывода помощи
 		-t [API_KEY] для сохранения токена
+		-h для вывода помощи
 	`);
 };
 
-export { printError, printSuccess, printHelp };
+export { printError, printSuccess, printHelp, printWeather };
